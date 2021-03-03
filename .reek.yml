@@ -1,0 +1,15 @@
+detectors:
+  IrresponsibleModule:
+    enabled: false
+  NestedIterators:
+    enabled: false
+  DuplicateMethodCall:
+    max_calls: 2
+  UtilityFunction:
+    exclude:
+      - 'options'
+#  Attribute:
+#    exclude:
+#      - 'User'
+#  TooManyInstanceVariables:
+#    max_instance_variables: 5
