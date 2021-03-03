@@ -1,21 +1,24 @@
 feature 'Sign up user', js: true do
   scenario 'User can register' do
-    random = Time.now.to_i.to_s
+    @home_page = HomePage.new
 
-    visit('http://testautomate.me/redmine/')
-    expect(page).to have_content 'Redmine@testautomate.me'
+    @home_page.load
+    expect(@home_page.header.text).to include 'Redmine@testautomate.me'
 
-    find('.register').click
+    @home_page.menu.sign_up_link.click
 
-    find('#user_login').set 'test' + random
-    find('#user_password').set 'test1234'
-    find('#user_password_confirmation').set 'test1234'
-    find('#user_firstname').set 'Test'
-    find('#user_lastname').set 'User'
-    find('#user_mail').set "test#{random}@test.org"
+    @sign_up_page = SignUpPage.new
+    random = SecureRandom.hex
 
-    find('#new_user > input[type=submit]:nth-child(4)').click
+    @sign_up_page.login.set 'test' + random
+    @sign_up_page.password.set 'test1234'
+    @sign_up_page.password_confirm.set 'test1234'
+    @sign_up_page.firstname.set 'Test'
+    @sign_up_page.lastname.set 'User'
+    @sign_up_page.email.set "test#{random}@test.org"
 
-    expect(page).to have_content 'Logged in as test'
+    @sign_up_page.submit_btn.click
+
+    expect(@home_page.menu.logged_as.text).to include 'Logged in as test'
   end
 end
