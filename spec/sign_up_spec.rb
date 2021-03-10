@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'Sign up user', js: true do
   scenario 'User can register' do
     @home_page = HomePage.new
@@ -10,7 +12,7 @@ feature 'Sign up user', js: true do
     @sign_up_page = SignUpPage.new
     random = SecureRandom.hex
 
-    @sign_up_page.login.set 'test' + random
+    @sign_up_page.login.set "test#{random}"
     @sign_up_page.password.set 'test1234'
     @sign_up_page.password_confirm.set 'test1234'
     @sign_up_page.firstname.set 'Test'
