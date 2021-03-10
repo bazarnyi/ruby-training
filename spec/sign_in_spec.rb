@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'Sign in user', js: true do
   scenario 'User can log in' do
     visit('http://testautomate.me/redmine/')
