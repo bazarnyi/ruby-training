@@ -7,3 +7,11 @@ detectors:
       - 'HomePage'
       - 'SignUpPage'
       - 'MenuSection'
+      - 'FeatureHelper'
+  DuplicateMethodCall:
+    exclude:
+      - 'sign_up_user'
+  TooManyStatements:
+    max_statements: 10
+  TooManyInstanceVariables:
+    max_instance_variables: 5
