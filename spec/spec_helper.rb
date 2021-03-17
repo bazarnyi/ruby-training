@@ -7,6 +7,10 @@ require 'site_prism'
 
 require_all 'page_objects/sections'
 require_all 'page_objects/pages'
+require_all 'models'
+require_all 'spec/support'
+
+include FeatureHelper
 
 RSpec.configure do
   def options
