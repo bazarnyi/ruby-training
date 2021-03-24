@@ -1,5 +1,8 @@
 Metrics/AbcSize:
   Enabled: false
 
+Metrics/MethodLength:
+  Max: 15
+
 Style/MixinUsage:
   Enabled: false
