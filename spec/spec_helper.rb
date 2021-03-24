@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'dotenv/load'
 require 'capybara/rspec'
 require 'require_all'
 require 'selenium-webdriver'
@@ -11,6 +12,7 @@ require_all 'models'
 require_all 'spec/support'
 
 include FeatureHelper
+include ApiWrapper
 
 RSpec.configure do
   def options
