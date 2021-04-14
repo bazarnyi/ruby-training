@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This Module describes repeatable actions
 module FeatureHelper
   def sign_up_user(user)
     @sign_up_page = SignUpPage.new
@@ -14,3 +15,5 @@ module FeatureHelper
     @sign_up_page.submit_btn.click
   end
 end
+
+World(FeatureHelper)

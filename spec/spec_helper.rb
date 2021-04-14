@@ -12,7 +12,7 @@ require_all 'models'
 require_all 'spec/support'
 
 include FeatureHelper
-include ApiWrapper
+include ApiWrapperRspec
 
 RSpec.configure do
   def options

@@ -9,7 +9,7 @@ detectors:
       - 'SignUpPage'
       - 'MenuSection'
       - 'FeatureHelper'
-      - 'ApiWrapper'
+      - 'ApiWrapperRspec'
   DuplicateMethodCall:
     exclude:
       - 'sign_up_user'
@@ -19,4 +19,5 @@ detectors:
     max_instance_variables: 5
   FeatureEnvy:
     exclude:
+      - 'ApiWrapperRspec'
       - 'ApiWrapper'
