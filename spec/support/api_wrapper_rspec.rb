@@ -2,7 +2,7 @@
 
 require 'rest-client'
 
-module ApiWrapper
+module ApiWrapperRspec
   def api_create_user(user)
     response = RestClient.post "#{ENV['ROOT_URL']}users.json",
                                {
