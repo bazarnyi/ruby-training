@@ -26,7 +26,10 @@ end
 #   Capybara.page.driver.browser.manage.window.maximize
 # end
 
-After do
-  # setting Capybara driver to reset sessions after all tests are done
-  Capybara.reset_sessions!
+After do |scenario|
+  if scenario.failed?
+    screen_path = "artifatcs/screenshots/#{scenario.name}_#{Time.now.strftime('%Y-%m-%d_%H:%M:%S')}.png"
+    page.save_screenshot(screen_path)
+  end
+  Capybara.reset_session!
 end
