@@ -13,7 +13,7 @@ require_all 'page_objects/pages'
 require_all 'models'
 
 def options
-  Selenium::WebDriver::Chrome::Options.new(args: %w[window-size=1800,1000])
+  Selenium::WebDriver::Chrome::Options.new(args: %w[window-size=1800,1000 --headless])
 end
 
 Capybara.default_driver = :selenium
@@ -26,7 +26,10 @@ end
 #   Capybara.page.driver.browser.manage.window.maximize
 # end
 
-After do
-  # setting Capybara driver to reset sessions after all tests are done
-  Capybara.reset_sessions!
+After do |scenario|
+  if scenario.failed?
+    screen_path = "artifacts/screenshots/#{scenario.name}_#{Time.now.strftime('%Y-%m-%d_%H:%M:%S')}.png"
+    page.save_screenshot(screen_path)
+  end
+  Capybara.reset_session!
 end
