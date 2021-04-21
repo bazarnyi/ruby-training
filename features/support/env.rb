@@ -28,7 +28,7 @@ end
 
 After do |scenario|
   if scenario.failed?
-    screen_path = "artifatcs/screenshots/#{scenario.name}_#{Time.now.strftime('%Y-%m-%d_%H:%M:%S')}.png"
+    screen_path = "artifacts/screenshots/#{scenario.name}_#{Time.now.strftime('%Y-%m-%d_%H:%M:%S')}.png"
     page.save_screenshot(screen_path)
   end
   Capybara.reset_session!

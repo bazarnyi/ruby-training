@@ -12,7 +12,7 @@ end
 
 When(/^I click click '([^"]*)' button$/) do |button|
   if button == 'login'
-    find('.login1').click
+    find('.login').click
   else
     @home_page.menu.sign_up_link.click
   end
