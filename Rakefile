@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 desc 'This task will execute all tests'
 task :execute_tests do
-  %W[create_report_folder_structure run_cucumber].each do |task_name|
+  %w[create_report_folder_structure run_cucumber].each do |task_name|
     sh "rake #{task_name}"
   end
 end
